@@ -17,6 +17,17 @@ const authenticateMiddleware = (req, res, next) => {
   }
 };
 
+function checkUserPermissions(permission) {
+  return (req, res, next) => {
+    if (req.user.permissions.includes(permission)) {
+      next();
+    } else {
+      res.status(401).send('Unauthorized - Insufficient Permissions');
+    }
+  };
+}
+
 module.exports = {
-    authenticateMiddleware: authenticateMiddleware
+  checkUserPermissions: checkUserPermissions,
+  authenticateMiddleware: authenticateMiddleware
 };

@@ -63,11 +63,11 @@ function setCookie(name, value, options = {}) {
 }
 
 document.getElementById('increaseBtn').addEventListener('click', async () => {
-  let result = await makeRequest('/increment', 'GET');
+  let result = await makeRequest('/counter/increment', 'GET');
 });
 
 document.getElementById('decreaseBtn').addEventListener('click', async () => {
-  const result = await makeRequest('/decrement', 'GET');
+  const result = await makeRequest('/counter/decrement', 'GET');
 });
 
 document.getElementById('getCounterBtn').addEventListener('click', async () => {
@@ -76,7 +76,7 @@ document.getElementById('getCounterBtn').addEventListener('click', async () => {
 });
 
 document.getElementById('getHistoryBtn').addEventListener('click', async () => {
-  const result = await makeRequest('/counterHistory', 'GET', 'html');
+  const result = await makeRequest('/counter/history', 'GET', 'html');
   historyContainer.innerHTML = result;
 });
 

@@ -1,3 +1,7 @@
+const usersData = require('../utils/usersData');
+const jwt = require('jsonwebtoken');
+const jwtSecret = require('../utils/jwtSecret');
+
 function loginUser(req, res) {
   const { username, password } = req.body;
   const user = usersData.find(u => u.username === username && u.password === password);

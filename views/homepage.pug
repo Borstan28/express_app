@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Homepage
+
+  body
+    div.container
+      h2 Homepage
+      button(id="logOutBtn", type="button", style="float:right;") Log out
+      p Welcome, #{user.username}!
+      span Counter Value:
+      span#counterValue Unknown. Use the "Get value" button to retrieve current value of counter
+    div
+      h3 Endpoints
+      button(id="increaseBtn", type="button", disabled=user.permissions.includes('counter:incr') ? null : "disabled") Increase
+      button(id="getCounterBtn", type="button", disabled=user.permissions.includes('counter:read') ? null : "disabled") Get Value
+      button(id="decreaseBtn", type="button", disabled=user.permissions.includes('counter:decr') ? null : "disabled") Decrease
+      button(id="getHistoryBtn", type="button", disabled=user.permissions.includes('counter:read') ? null : "disabled") Get History
+      input(type="hidden", id="isCounterDataRetrieved",value=true)
+
+      p "Get value" - to receive the current value of counter from server.
+      p  "Increase" and "Decrease" - to increase or decrease the value of counter on server. Value on frontend is not being updated.
+      p  "Get history" - to receive the counter history (snapshots of counter value is being recorder on the 1 min basis). Latest 10 values is being remembered.
+      div#historyContainer
+    script(src="/js/homepage.js")

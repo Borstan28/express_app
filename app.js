@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const { incrementCounterHandler, decrementCounterHandler, getCounterValueHandler, getCounterHistoryHandler, writeCounterInterval } = require('./handlers/counter');
-const loginUser = require('./handlers/login');
+const { incrementCounterHandler, decrementCounterHandler, getCounterValueHandler, getCounterHistoryHandler, writeCounterInterval } = require('./controllers/counterController');
+const loginUser = require('./controllers/loginController');
 const { authenticateMiddleware, checkUserPermissions} = require('./middleware/userMiddleware');
 
 const app = express();

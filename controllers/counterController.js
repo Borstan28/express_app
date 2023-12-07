@@ -1,5 +1,5 @@
 
-const { increaseCounter, decreaseCounter } = require('../controllers/counter');
+const { increaseCounter, decreaseCounter } = require('../helpers/counter');
 const { writeCounter, getCounterHistory} = require('../db');
 let counterValue = 0;
 

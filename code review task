@@ -1,0 +1,16 @@
+Link to file: https://github.com/Satyaaam/metromatejs/blob/main/backend/controller/pathController.js
+
+1. Lines 365-368 (loop which iterates over "data" variable) could be moved to Graph class as one of the methods (for example - initializeGraph(), so this will keep the code more clear and will make
+  the Graph class more focused on graph-related operations. 
+  
+2. Line 391 (findRoute) could be moved to Graph class as well. 
+
+3. Lines 109-363 (enormous array with data) could be moved in a separate module (to keep the code clear) or moved to the database - this approach will prevent hardcoding.
+
+4. Instead of directrly using data in the mentioned array, where stations, color of it's line and it's destinations represented as comma-separated strings, we could make a new Station class to operate with.
+This will help us to avoid technical debt in the future, for the case when stations-related functionality could be more complex. Stations could be represented as Station class instances, and this will give us
+ability to extend this class with new functionality without need to refactor a lot of code. 
+
+5. It's better to add logging system to this code
+
+6. Lines 375-376 could be refactored using destructurization (ex. const { source, destination } = req.body)
